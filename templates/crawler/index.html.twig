@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Web Crawler{% endblock %}
+
+{% block body %}
+    <div class="container h-100 align-content-center">
+        <h1>Crawler</h1>
+        <div class="h-100 container">
+                <form class="align-content-center" method="post" action="/search" id="id_search_form">
+                    <div class="row">
+                            <div class="form-group col-sm-9">
+                                <label for="form-crawl-url">Url</label>
+                                <input class="form-control" type="text" required name="url" placeholder="paste your url...">
+                            </div>
+                            <div class="form-group col-sm-2">
+                                <label for="form-crawl-depth">Depth</label>
+                                <input class="form-control" type="number" name="depth" required placeholder="crawl depth?">
+                            </div>
+
+                            <div class="form-group col-sm-1">
+                                <button type="submit" class="form-control btn-info btn-align" id="crawl_play"><i class="fas fa-search"></i></button>
+                            </div>
+                    </div>
+                </form>
+        </div>
+    </div>
+    <div class="h-100">
+        <div class="row">
+            <div class="col-lg-6 title">
+                {{ news_title}}
+            </div>
+            <div class="col-lg-6 title">
+                {{ result_title}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 result" id="id_new_url">
+                {{ news | raw}}
+            </div>
+            <div class="col-lg-6 result" id="ir_result">
+                {{ result | raw}}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
